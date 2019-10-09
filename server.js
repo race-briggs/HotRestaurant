@@ -7,6 +7,7 @@ var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 var reservations = [];
 var waitlist = [];
@@ -32,7 +33,11 @@ app.post("/api/reservations", function(req, res){
 
   console.log(newReservation);
 
-  reservations.push(newReservation);
+  if(reservations.length < 5){
+    reservations.push(newReservation);
+  } else {
+    waitlist.push(newReservation);
+  }
 
   res.json(newReservation);
 })

@@ -7,9 +7,6 @@ var PORT = process.env.PORT || 3030;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-  app.listen(PORT, function(){
-  console.log('App is listening on PORT ' + PORT);
-})
 
 var reservations = [];
 var waitlist = [];
@@ -40,3 +37,6 @@ app.post("/api/reservations", function(req, res){
   res.json(newReservation);
 })
 
+app.listen(PORT, function(){
+  console.log('App is listening on PORT ' + PORT);
+})

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
+  <title>Hot Restraurant</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -18,13 +18,12 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>HOT Restraurant</h1>
-      <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+      <h1>Hot Restraurant</h1>
+      <h3>TBD!</h3>
       <hr>
-      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
-          Character</button></a>
-      <a href="/api/characters"><button class="btn btn-danger btn-lg"><span
-            class="fa fa-eye"></span> All Characters</button></a>
+      <a href="/form"><button class="btn btn-danger btn-lg"><span class="fa fa-user-plus"></span> Add Reservation</button></a>
+      <a href="/api/characters"><button class="btn btn-danger btn-lg" id="view-rsv"><span
+            class="fa fa-eye"></span>View Reservations</button></a>
     </div>
     <div class="row">
 
@@ -64,6 +63,13 @@
   </div>
 
   <script type="text/javascript">
+    $("view-rsv").on("ready", function(){
+        $.get("/")
+    })
+
+
+
+
     $("#search-btn").on("click", function() {
       var searchedCharacter = $("#character-search").val().trim();
 

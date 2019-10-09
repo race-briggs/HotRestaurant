@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/race-briggs/HotRestaurant/issues"
   },
-  "homepage": "https://github.com/race-briggs/HotRestaurant#readme"
+  "homepage": "https://github.com/race-briggs/HotRestaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

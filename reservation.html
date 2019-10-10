@@ -27,33 +27,47 @@
 
                 <div class="card">
                     <div class="card-header">
-                      <h3><strong>Character Statistics</strong></h3>
+                        <h3><strong>Reservations</strong></h3>
                     </div>
                     <div class="card-body">
-                      <h2 id="name">Yoda</h2>
-                      <div id="stats">
-                        <h3><strong>Role:</strong> <span id="role">Jedi Master</span></h3>
-                        <h3><strong>Age:</strong> <span id="age">900</span></h3>
-                        <h3><strong>Force Points:</strong> <span id="force-points">2000</span></h3>
-                      </div>
-                    </div>
-                  </div>
+                        <table style="width:100%" id= "resv-table">
+                            <tr>
+                                <th>name</th>                                
+                                <th># of People</th>
+                            </tr>
+                            <tr>
+                                                          
+                            </tr>
+                            
+                        </table>
 
+
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
 
-    <script type="text/javascript">
-        $.get("/api/waitlist", function (data) {
-            console.log(data);
-            if (data) {
-                $("#name").text(data.name);
-                $("#people").text(data.people);
+        <script type="text/javascript">
+            $.get("/api/waitlist", function (data) {
+                console.log(data);
+                for (var i=0; i < data.length; i++){`          
+                    <tr>
+                        <td>${data.name[i]}</td>
+                        <td>${data.people[i]}</td>
+                    </tr>
+                    `}
+                
 
-            } else {
-                $("#name").text("NOPE");
-            }
-        })
+                if (data) {
+                    
+                    $("#name").text(data.name);
+                    $("#people").text(data.people);
+
+                } else {
+                    $("#name").text("NOPE");
+                }
+            })
 
 
     // $.get("/api/characters/" + searchedCharacter, function(data) {
@@ -85,7 +99,7 @@
     //       alert("Adding reservation");
     //     });
     // });
-    </script>
+        </script>
 
 </body>
 

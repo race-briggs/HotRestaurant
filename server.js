@@ -34,8 +34,12 @@ app.post("/api/reservations", function(req, res){
   console.log(newReservation);
 
   if(reservations.length < 5){
+    console.log('You have made a reservation!')
+    newReservation.status = 'reservation';
     reservations.push(newReservation);
   } else {
+    console.log('You have been put on the waitlist!')
+    newReservation.status = 'waitlist';
     waitlist.push(newReservation);
   }
 

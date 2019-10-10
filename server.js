@@ -15,6 +15,10 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
+app.get("/view/reservations", function(req, res){
+  res.sendFile(path.join(__dirname, 'reservation.html'));
+});
+
 app.get("/api/waitlist", function(req, res){
   return res.json(waitlist)
 })
@@ -32,7 +36,15 @@ app.post("/api/reservations", function(req, res){
 
   console.log(newReservation);
 
-  reservations.push(newReservation);
+  if(reservations.length < 5){
+    console.log('You have made a reservation!')
+    newReservation.status = 'reservation';
+    reservations.push(newReservation);
+  } else {
+    console.log('You have been put on the waitlist!')
+    newReservation.status = 'waitlist';
+    waitlist.push(newReservation);
+  }
 
   res.json(newReservation);
 })

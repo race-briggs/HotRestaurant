@@ -16,6 +16,10 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
+app.get("/view/reservations", function(req, res){
+  res.sendFile(path.join(__dirname, 'reservation.html'));
+});
+
 app.get("/api/waitlist", function(req, res){
   return res.json(waitlist)
 })
